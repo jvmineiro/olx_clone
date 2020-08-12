@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:xlo/screens/base_screen.dart';
+import 'file:///D:/AndroidStudioProjects/xlo/lib/screens/base/base_screen.dart';
 
 void main() => runApp(MyApp());
 
