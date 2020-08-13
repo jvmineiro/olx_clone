@@ -18,10 +18,10 @@ class _BaseScreenState extends State<BaseScreen> {
         physics: const NeverScrollableScrollPhysics(),
         children: <Widget>[
           HomeScreen(),
-          Container(color: Colors.blue,),
-          Container(color: Colors.red,),
-          Container(color: Colors.blue,),
-          Container(color: Colors.red,),
+          Container(color: Colors.blue),
+          Container(color: Colors.red),
+          Container(color: Colors.blue),
+          Container(color: Colors.red),
         ],
       ),
     );
