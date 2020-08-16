@@ -15,7 +15,7 @@ class DrawerBloc {
     _pageController.add(page);
   }
 
-  void dispose(){
+  void dispose() {
     _pageController.close();
   }
 

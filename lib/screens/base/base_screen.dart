@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:xlo/blocs/drawer_bloc.dart';
@@ -18,7 +19,7 @@ class _BaseScreenState extends State<BaseScreen> {
   StreamSubscription _drawerSubscription;
 
   @override
-  void didChangeDependencies(){
+  void didChangeDependencies() {
     super.didChangeDependencies();
 
     final DrawerBloc drawerBloc = Provider.of<DrawerBloc>(context);
@@ -26,7 +27,7 @@ class _BaseScreenState extends State<BaseScreen> {
       _drawerBloc = drawerBloc;
 
       _drawerSubscription?.cancel();
-      _drawerSubscription = _drawerBloc.outPage.listen((page) {
+      _drawerSubscription = _drawerBloc.outPage.listen((page){
         _pageController.jumpToPage(page);
       });
     }

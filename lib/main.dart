@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:xlo/blocs/drawer_bloc.dart';
 import 'package:xlo/screens/base/base_screen.dart';
 
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
