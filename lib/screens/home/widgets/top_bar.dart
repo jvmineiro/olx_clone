@@ -13,7 +13,7 @@ class TopBar extends StatelessWidget {
             blurRadius: 20.0,
             offset: Offset(
               0, 2
-            )
+            ),
           )
         ]
       ),
@@ -24,7 +24,9 @@ class TopBar extends StatelessWidget {
             boxDecoration: BoxDecoration(
               color: Colors.white,
             ),
-            onPressed: (){},
+            onPressed: (){
+
+            },
           ),
           BarButton(
             label: 'Filtros',
