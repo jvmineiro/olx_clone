@@ -37,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title:StreamBuilder<String>(
+        title: StreamBuilder<String>(
           stream: _homeBloc.outSearch,
           initialData: '',
           builder: (context, snapshot){
@@ -88,5 +88,4 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-
 }

@@ -44,7 +44,7 @@ class TopBar extends StatelessWidget {
                 )
               );
             },
-          ),
+          )
         ],
       ),
     );

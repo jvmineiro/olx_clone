@@ -21,9 +21,9 @@ class BarButton extends StatelessWidget {
             label,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
-              color: Colors.blue,
-              fontSize: 18,
-              fontWeight: FontWeight.w400
+                color: Colors.blue,
+                fontSize: 18,
+                fontWeight: FontWeight.w400
             ),
           ),
         ),

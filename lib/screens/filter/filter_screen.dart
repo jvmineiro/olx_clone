@@ -24,9 +24,9 @@ class _FilterScreenState extends State<FilterScreen> {
             child: ListView(
               padding: const EdgeInsets.all(16),
               children: <Widget>[
-                const SectionTitle(title: "Ordenar por"),
-                const SectionTitle(title: "Preço (R\$)"),
-                const SectionTitle(title: "Tipo de Anunciante"),
+                const SectionTitle(title: 'Ordernar por'),
+                const SectionTitle(title: 'Preço (R\$)'),
+                const SectionTitle(title: 'Tipo de anunciante'),
               ],
             ),
           ),
