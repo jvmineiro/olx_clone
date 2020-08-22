@@ -24,7 +24,8 @@ class OrderByField extends StatelessWidget {
                 height: 50,
                 width: 80,
                 decoration: BoxDecoration(
-                    border: Border.all(color: state.value == OrderBy.DATE ? Colors.transparent : Colors.grey),
+                  border: Border.all(color: state.value == OrderBy.DATE ?
+                    Colors.transparent : Colors.grey),
                   borderRadius: const BorderRadius.all(Radius.circular(50)),
                   color: state.value == OrderBy.DATE ? Colors.blue : Colors.transparent
                 ),
@@ -46,7 +47,8 @@ class OrderByField extends StatelessWidget {
                 height: 50,
                 width: 80,
                 decoration: BoxDecoration(
-                    border: Border.all(color: state.value == OrderBy.PRICE ? Colors.transparent : Colors.grey),
+                    border: Border.all(color: state.value == OrderBy.PRICE ?
+                    Colors.transparent : Colors.grey),
                     borderRadius: const BorderRadius.all(Radius.circular(50)),
                     color: state.value == OrderBy.PRICE ? Colors.blue : Colors.transparent
                 ),
