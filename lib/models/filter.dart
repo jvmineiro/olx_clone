@@ -11,7 +11,7 @@ class Filter {
     this.minPrice,
     this.maxPrice,
     this.vendorType = VENDOR_TYPE_PARTICULAR | VENDOR_TYPE_PROFESSIONAL,
-});
+  });
 
   String search;
 
@@ -19,4 +19,5 @@ class Filter {
   int minPrice;
   int maxPrice;
   int vendorType;
+
 }

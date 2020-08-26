@@ -12,10 +12,11 @@ class AnimatedButton extends StatefulWidget {
 }
 
 class _AnimatedButtonState extends State<AnimatedButton> with SingleTickerProviderStateMixin {
+
   AnimationController _controller;
   Animation<EdgeInsets> _edgeAnimation;
   Animation<double> _radiusAnimation;
-
+  
   ScrollController get scrollController => widget.scrollController;
   VoidCallback get onTap => widget.onTap;
 
@@ -23,19 +24,19 @@ class _AnimatedButtonState extends State<AnimatedButton> with SingleTickerProvid
   void initState() {
     super.initState();
 
-    _controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 200));
-    
+    _controller = AnimationController(vsync: this,
+        duration: const Duration(milliseconds: 200));
+
     _edgeAnimation = EdgeInsetsTween(
       begin: const EdgeInsets.fromLTRB(16, 0, 16, 16),
       end: EdgeInsets.zero
     ).animate(_controller);
 
     _radiusAnimation = Tween<double>(
-        begin: 25, end: 0
+      begin: 25, end: 0
     ).animate(_controller);
-
+    
     scrollController.addListener(positionChanged);
-
   }
 
   void positionChanged(){
@@ -52,7 +53,7 @@ class _AnimatedButtonState extends State<AnimatedButton> with SingleTickerProvid
     scrollController.removeListener(positionChanged);
     super.dispose();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(

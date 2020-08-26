@@ -28,7 +28,7 @@ class PriceRangeField extends StatelessWidget {
             initialValue: filter.minPrice?.toString(),
             onSaved: (s){
               if(s.isEmpty)
-                return filter.minPrice = null;
+                filter.minPrice = null;
               else
                 filter.minPrice = int.parse(getSanitizedText(s));
             },
@@ -54,7 +54,7 @@ class PriceRangeField extends StatelessWidget {
             initialValue: filter.maxPrice?.toString(),
             onSaved: (s){
               if(s.isEmpty)
-                return filter.maxPrice = null;
+                filter.maxPrice = null;
               else
                 filter.maxPrice = int.parse(getSanitizedText(s));
             },

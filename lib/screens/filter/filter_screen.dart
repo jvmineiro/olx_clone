@@ -64,29 +64,28 @@ class _FilterScreenState extends State<FilterScreen> {
           ),
           AnimatedButton(
             scrollController: _scrollController,
-            onTap:  (){
-             if(_formKey.currentState.validate()){
-               _formKey.currentState.save();
+            onTap: (){
+              if(_formKey.currentState.validate()){
+                _formKey.currentState.save();
 
-               if(_filter.maxPrice != null && _filter.minPrice != null){
-                 if(_filter.minPrice > _filter.maxPrice){
+                if(_filter.maxPrice != null && _filter.minPrice != null){
+                  if(_filter.minPrice > _filter.maxPrice){
                     _scaffoldKey.currentState.showSnackBar(
                       SnackBar(
                         content: const Text(
-                          'Faixa de preço invalida'
+                           'Faixa de preço inválida'
                         ),
                         backgroundColor: Colors.pink,
                       )
                     );
                     return;
-                 }
-               }
+                  }
+                }
 
-               // SALVAR TUDO E PESQUISAR TUDO !!!!
-
-             }
+                // SALVAR TUDO E PESQUISAR ANUNCIOS!!!
+              }
             },
-          ),
+          )
         ],
       ),
     );
