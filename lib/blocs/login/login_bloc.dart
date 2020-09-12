@@ -16,10 +16,18 @@ class LoginBloc with LoginValidator {
 
   Stream<LoginBlocState> get outState => _stateController.stream;
 
-  Stream<FieldState> get outEmail =>
-      _emailController.stream.transform(emailValidator);
-  Stream<FieldState> get outPassword =>
-      _passwordController.stream.transform(passwordValidator);
+  Stream<FieldState> get outEmail => Rx.combineLatest2(
+      _emailController.stream.transform(emailValidator), outState, (a, b){
+        a.enabled = b.state != LoginState.LOADING;
+        return a; 
+  });
+
+  Stream<FieldState> get outPassword => Rx.combineLatest2(
+      _passwordController.stream.transform(passwordValidator), outState, (a, b){
+    a.enabled = b.state != LoginState.LOADING;
+    return a;
+  });
+      
 
   Stream<ButtonState> get ourLoginButton => Rx.combineLatest3(
       outEmail, outPassword, outState, (a, b, c){
