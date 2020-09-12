@@ -1,4 +1,5 @@
 import 'package:rxdart/rxdart.dart';
+import 'package:xlo/blocs/login/button_state.dart';
 import 'package:xlo/blocs/login/field_state.dart';
 import 'package:xlo/blocs/login/login_bloc_state.dart';
 import 'package:xlo/validators/login_validator.dart';
@@ -19,6 +20,24 @@ class LoginBloc with LoginValidator {
       _emailController.stream.transform(emailValidator);
   Stream<FieldState> get outPassword =>
       _passwordController.stream.transform(passwordValidator);
+
+  Stream<ButtonState> get ourLoginButton => Rx.combineLatest3(
+      outEmail, outPassword, outState, (a, b, c){
+        return ButtonState(
+          loading: c.state == LoginState.LOADING,
+          enabled: a.error == null && b.error == null
+              && c.state !=  LoginState.LOADING
+        );
+      }
+  );
+
+  void loginWithEmail() async{
+    _stateController.add(LoginBlocState(LoginState.LOADING));
+
+     await Future.delayed(Duration(seconds: 3));
+
+     _stateController.add(LoginBlocState(LoginState.DONE));
+  }
 
   void dispose(){
     _stateController.close();
