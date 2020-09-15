@@ -23,7 +23,7 @@ class FieldTitle extends StatelessWidget {
             ),
           ),
           Text(
-            '$subtitle   ',
+            '$subtitle',
             style: TextStyle(
               color: Colors.grey,
               fontSize: 12,
