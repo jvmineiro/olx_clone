@@ -18,8 +18,8 @@ class LoginBloc with LoginValidator {
 
   Stream<FieldState> get outEmail => Rx.combineLatest2(
       _emailController.stream.transform(emailValidator), outState, (a, b){
-        a.enabled = b.state != LoginState.LOADING;
-        return a; 
+     a.enabled = b.state != LoginState.LOADING;
+     return a;
   });
 
   Stream<FieldState> get outPassword => Rx.combineLatest2(
@@ -27,24 +27,33 @@ class LoginBloc with LoginValidator {
     a.enabled = b.state != LoginState.LOADING;
     return a;
   });
-      
 
-  Stream<ButtonState> get ourLoginButton => Rx.combineLatest3(
-      outEmail, outPassword, outState, (a, b, c){
-        return ButtonState(
-          loading: c.state == LoginState.LOADING,
-          enabled: a.error == null && b.error == null
-              && c.state !=  LoginState.LOADING
-        );
-      }
+  Stream<ButtonState> get outLoginButton => Rx.combineLatest3(
+    outEmail, outPassword, outState, (a, b, c){
+      return ButtonState(
+        loading: c.state == LoginState.LOADING,
+        enabled: a.error == null && b.error == null
+            && c.state != LoginState.LOADING
+      );
+    }
   );
 
-  void loginWithEmail() async{
+  Future<bool> loginWithEmail() async {
     _stateController.add(LoginBlocState(LoginState.LOADING));
 
-     await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(Duration(seconds: 3));
 
-     _stateController.add(LoginBlocState(LoginState.DONE));
+    _stateController.add(LoginBlocState(LoginState.DONE));
+    return true;
+  }
+
+  Future<bool> loginWithFacebook() async {
+    _stateController.add(LoginBlocState(LoginState.LOADING_FACE));
+
+    await Future.delayed(Duration(seconds: 3));
+
+    _stateController.add(LoginBlocState(LoginState.DONE));
+    return true;
   }
 
   void dispose(){

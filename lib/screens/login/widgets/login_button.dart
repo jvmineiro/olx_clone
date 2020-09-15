@@ -14,7 +14,7 @@ class LoginButton extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 24),
       height: 50,
       child: StreamBuilder<ButtonState>(
-        stream: loginBloc.ourLoginButton,
+        stream: loginBloc.outLoginButton,
         initialData: ButtonState(enabled: false, loading: false),
         builder: (context, snapshot){
           return RaisedButton(
@@ -24,8 +24,10 @@ class LoginButton extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(25)
             ),
-            onPressed: snapshot.data.enabled ? (){
-              loginBloc.loginWithEmail();
+            onPressed: snapshot.data.enabled ? () async {
+              final bool success = await loginBloc.loginWithEmail();
+              if(success)
+                Navigator.of(context).pop();
             } : null,
             child: snapshot.data.loading ?
               CircularProgressIndicator(
