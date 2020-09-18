@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:xlo/blocs/signup_bloc.dart';
 import 'package:xlo/screens/signup/widgets/field_title.dart';
 import 'package:xlo/screens/signup/widgets/password_field.dart';
 
@@ -10,6 +11,20 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  SignUpBloc _signUpBloc;
+
+  @override
+  void initState(){
+    super.initState();
+    _signUpBloc = SignUpBloc();
+  }
+
+  @override
+  void dispose(){
+    _signUpBloc?.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

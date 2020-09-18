@@ -1,4 +1,5 @@
 import 'package:rxdart/rxdart.dart';
+import 'package:xlo/models/user.dart';
 
 enum SignUpState {IDLE, LOADING, ERROR }
 
@@ -17,7 +18,9 @@ class SignUpBloc {
 
   Stream<SignUpBlocState> get outState => _stateController.stream;
 
+  User user = User();
 
+  set name(String name) => user.name = name;
 
   void  dispose(){
     _stateController.close();
