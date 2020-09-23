@@ -15,13 +15,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
   SignUpBloc _signUpBloc;
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
     _signUpBloc = SignUpBloc();
   }
 
   @override
-  void dispose(){
+  void dispose() {
     _signUpBloc?.dispose();
     super.dispose();
   }
@@ -91,17 +91,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     color: Colors.pink,
                     disabledColor: Colors.pink.withAlpha(150),
                     child: snapshot.data.state == SignUpState.LOADING ?
-                    CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                    ) :
-                    Text(
-                      'Cadastre-se',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
+                      CircularProgressIndicator(
+                        valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                      ) :
+                      Text(
+                        'Cadastre-se',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
-                    ),
                     onPressed: snapshot.data.state != SignUpState.LOADING ? _signUp : null,
                     elevation: 0,
                     shape: RoundedRectangleBorder(
@@ -118,7 +118,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       const Text(
-                        'Ja tem uma conta ?',
+                        'Já tem uma conta? ',
                         style: TextStyle(fontSize: 16),
                       ),
                       GestureDetector(
@@ -145,7 +145,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
-  void _signUp(){
+  void _signUp() {
     if(_formKey.currentState.validate()){
       _formKey.currentState.save();
 

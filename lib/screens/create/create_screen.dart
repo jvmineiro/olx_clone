@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:xlo/common/custom_drawer/custom_drawer.dart';
-import 'package:xlo/screens/base/widgets/images_fields.dart';
+import 'package:xlo/screens/create/widgets/images_field.dart';
 
 class CreateScreen extends StatefulWidget {
   @override
@@ -25,7 +25,7 @@ class _CreateScreenState extends State<CreateScreen> {
           children: <Widget>[
             ImagesField(
 
-            )
+            ),
           ],
         ),
       ),

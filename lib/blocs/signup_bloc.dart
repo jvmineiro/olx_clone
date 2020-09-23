@@ -1,7 +1,7 @@
 import 'package:rxdart/rxdart.dart';
 import 'package:xlo/models/user.dart';
 
-enum SignUpState {IDLE, LOADING, ERROR }
+enum SignUpState { IDLE, LOADING, ERROR }
 
 class SignUpBlocState {
 
@@ -19,8 +19,8 @@ class SignUpBloc {
   Stream<SignUpBlocState> get outState => _stateController.stream;
 
   User user = User();
-  
-  void signUp() async{
+
+  void signUp() async {
     _stateController.add(SignUpBlocState(SignUpState.LOADING));
 
     await Future.delayed(Duration(seconds: 3));
@@ -40,7 +40,7 @@ class SignUpBloc {
     user.password = password;
   }
 
-  void  dispose(){
+  void dispose(){
     _stateController.close();
   }
 
