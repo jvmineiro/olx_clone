@@ -16,7 +16,7 @@ Future<ApiResponse> getAddressFromAPI(String postalCode) async {
       return ApiResponse.error(
         error: ApiError(
           code: -1,
-          message: "CEP invalido"
+          message: 'CEP inválido'
         )
       );
     }

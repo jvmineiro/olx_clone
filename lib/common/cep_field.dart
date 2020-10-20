@@ -27,10 +27,10 @@ class _CepFieldState extends State<CepField> {
     super.initState();
     cepBloc = CepBloc();
   }
-
+  
   @override
   void dispose() {
-    cepBloc.dispose();
+    cepBloc?.dispose();
     super.dispose();
   }
 
@@ -55,16 +55,15 @@ class _CepFieldState extends State<CepField> {
                 CepInputFormatter(),
               ],
               onSaved: (c){
-                onSaved(Address());
+                onSaved(snapshot.data.address);
               },
-              onChanged: cepBloc.onCHanged,
+              onChanged: cepBloc.onChanged,
               validator: (c){
                 switch(snapshot.data.cepFieldState){
                   case CepFieldState.INITIALIZING:
                   case CepFieldState.INCOMPLETE:
-                    return 'Campo Obrigatório';
                   case CepFieldState.INVALID:
-                    return 'Campo Inválido';
+                  return 'Campo obrigatório';
                   case CepFieldState.VALID:
                 }
                 return null;
@@ -77,7 +76,35 @@ class _CepFieldState extends State<CepField> {
     );
   }
 
-  Widget buildInformation(CepBlocState blocState) {
-
+  Widget buildInformation(CepBlocState blocState){
+    switch (blocState.cepFieldState) {
+      case CepFieldState.INITIALIZING:
+      case CepFieldState.INCOMPLETE:
+        return Container();
+      case CepFieldState.INVALID:
+        return Container(
+            height: 50,
+            padding: const EdgeInsets.all(8),
+            color: Colors.red.withAlpha(100),
+            alignment: Alignment.center,
+            child: Text(
+              'CEP Inválido',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontWeight: FontWeight.w600, color: Colors.red),
+            ));
+      case CepFieldState.VALID:
+        final _address = blocState.address;
+        return Container(
+            height: 50,
+            padding: const EdgeInsets.all(8),
+            color: Colors.pink,
+            alignment: Alignment.center,
+            child: Text(
+              'Localização: ${_address.district} - ${_address.city} - ${_address.federativeUnit}',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontWeight: FontWeight.w600, color: Colors.white),
+            ));
+    }
+    return Container();
   }
 }

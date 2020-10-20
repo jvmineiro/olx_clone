@@ -12,18 +12,19 @@ class CepBlocState {
   CepFieldState cepFieldState;
   String cep;
   Address address;
+
 }
 
 class CepBloc {
 
-  CepBloc() {
-    onCHanged("");
+  CepBloc(){
+    onChanged("");
   }
 
   final BehaviorSubject<CepBlocState> _cepController = BehaviorSubject<CepBlocState>();
   Stream<CepBlocState> get outCep => _cepController.stream;
 
-  void searchCep(String cep) async{
+  void searchCep(String cep) async {
     final ApiResponse apiResponse = await getAddressFromAPI(cep);
 
     if(apiResponse.success){
@@ -44,7 +45,7 @@ class CepBloc {
     }
   }
 
-  void onCHanged(String cep) {
+  void onChanged(String cep){
     cep = cep.trim().replaceAll('-', '').replaceAll('.', '');
     if(cep.isEmpty || cep.length < 8){
       _cepController.add(
