@@ -59,12 +59,25 @@ class _CepFieldState extends State<CepField> {
               },
               onChanged: cepBloc.onCHanged,
               validator: (c){
-
+                switch(snapshot.data.cepFieldState){
+                  case CepFieldState.INITIALIZING:
+                  case CepFieldState.INCOMPLETE:
+                    return 'Campo Obrigatório';
+                  case CepFieldState.INVALID:
+                    return 'Campo Inválido';
+                  case CepFieldState.VALID:
+                }
+                return null;
               },
-            )
+            ),
+            buildInformation(snapshot.data)
           ],
         );
       }
     );
+  }
+
+  Widget buildInformation(CepBlocState blocState) {
+
   }
 }
