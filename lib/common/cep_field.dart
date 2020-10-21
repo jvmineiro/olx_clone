@@ -63,7 +63,7 @@ class _CepFieldState extends State<CepField> {
                   case CepFieldState.INITIALIZING:
                   case CepFieldState.INCOMPLETE:
                   case CepFieldState.INVALID:
-                  return 'Campo obrigatório';
+                    return 'Campo obrigatório';
                   case CepFieldState.VALID:
                 }
                 return null;
