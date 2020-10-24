@@ -65,7 +65,6 @@ class _CreateScreenState extends State<CreateScreen> {
                 ),
               );
             }
-
             return ListView(
               children: <Widget>[
                 ImagesField(
