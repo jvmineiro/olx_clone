@@ -19,6 +19,11 @@ class ProductTile extends StatelessWidget {
         child: Card(
           child: Row(
             children: <Widget>[
+              SizedBox(
+                height: 135,
+                width: 127,
+                child: Image.file(ad.images[0], fit: BoxFit.cover,),
+              ),
 
             ],
           ),
