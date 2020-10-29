@@ -29,6 +29,8 @@ class ProductTile extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(12),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text(
                         ad.title,
@@ -38,7 +40,18 @@ class ProductTile extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        'R\$${ad.price}'
+                        'R\$${numToString(ad.price)}',
+                        style: TextStyle(
+                          fontSize: 19,
+                          fontWeight: FontWeight.w700
+                        ),
+                      ),
+                      Text(
+                        '${ad.address.district}, ${ad.address.city}',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w300,
+                        ),
                       )
                     ],
                   ),
@@ -53,6 +66,6 @@ class ProductTile extends StatelessWidget {
 
   String numToString(num number) {
     return NumberFormat('###,##0.00', 'pt-br').
-    format(double.parse(number.toStringAsFixed(2)));
+      format(double.parse(number.toStringAsFixed(2)));
   }
 }
