@@ -29,6 +29,20 @@ class ProductScreen extends StatelessWidget {
               dotColor: Colors.pink,
               autoplay: false,
             ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Column(
+              children: <Widget>[
+                MainPanel(ad),
+                /*Divider(),
+                DescriptionPanel(ad),
+                Divider(),
+                LocationPanel(ad),
+                Divider(),
+                UserPanel */
+              ],
+            ),
           )
         ],
       ),
